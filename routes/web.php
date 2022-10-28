@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\MenuEnums;
 use Illuminate\Support\Facades\Route;
 
 /*
