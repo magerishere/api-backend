@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('is_active');
             $table->foreignIdFor(Menu::class, 'parent_id')->nullable()->constrained('menus')->cascadeOnDelete();
             $table->enum('type', MenuEnums::phantom__all());
-            $table->json('title');
+            $table->string('title');
             $table->string('link');
             $table->text('icon');
             $table->timestamps();

@@ -18,8 +18,8 @@ class MenuController extends PhantomController
      */
     public function index(Request $request)
     {
-        $header_menus = $this->phantom__query()->with('children')->ofType(MenuEnums::HEADER)->get();
-        $footer_menus = $this->phantom__query()->with('children')->ofType(MenuEnums::FOOTER)->get();
+        $header_menus = $this->phantom__query()->with('children')->ofType(MenuEnums::BACK_HEADER)->get();
+        $footer_menus = $this->phantom__query()->with('children')->ofType(MenuEnums::BACK_FOOTER)->get();
         return $this->phantom__setResponse([
             'header_menus' => $header_menus,
             'footer_menus' => $footer_menus,

@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Menu::factory(10)->create();
+        Menu::factory(30)->create();
     }
 }
