@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\LocaleEnums;
 use App\Enums\MenuEnums;
 use App\Models\Menu;
 use Illuminate\Database\Migrations\Migration;
@@ -17,12 +18,13 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Menu::class)->nullable()->constrained()->cascadeOnDelete();
+            $table->enum('locale', LocaleEnums::phantom__all());
             $table->boolean('is_active');
-            $table->enum('type',MenuEnums::phantom__all());
+            $table->foreignIdFor(Menu::class, 'parent_id')->nullable()->constrained('menus')->cascadeOnDelete();
+            $table->enum('type', MenuEnums::phantom__all());
             $table->json('title');
             $table->string('link');
-            $table->string('icon');
+            $table->text('icon');
             $table->timestamps();
         });
     }

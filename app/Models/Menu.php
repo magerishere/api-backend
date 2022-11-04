@@ -10,11 +10,17 @@ class Menu extends PhantomModel
     use HasFactory;
 
     protected $fillable = [
-        'menu_id',
+        'locale',
+        'parent_id',
         'is_active',
         'type',
         'title',
         'link',
         'icon'
     ];
+
+    protected $casts = [
+        'title' => 'json'
+    ];
+
 }
