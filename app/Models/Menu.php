@@ -19,8 +19,5 @@ class Menu extends PhantomModel
         'icon'
     ];
 
-    protected $casts = [
-        'title' => 'json'
-    ];
 
 }
