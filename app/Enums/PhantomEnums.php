@@ -22,4 +22,5 @@ class PhantomEnums
         return self::phantom__getReflection()->getConstants();
     }
 
+
 }

@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Menu::factory(30)->create();
+        $this->call(MenuSeeder::class);
     }
 }

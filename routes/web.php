@@ -16,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $locales = LocaleEnums::phantom__all();
+    dd(in_array('fa', $locales));
     return view('welcome');
 });

@@ -6,6 +6,7 @@ use App\Enums\MenuEnums;
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class MenuController extends PhantomController
 {
@@ -18,7 +19,7 @@ class MenuController extends PhantomController
      */
     public function index(Request $request)
     {
-        $header_menus = $this->phantom__query()->with('children')->ofType(MenuEnums::BACK_HEADER)->get();
+        $header_menus = $this->phantom__query()->with('children')->ofType(MenuEnums::BACK_HEADER)->whereNull('parent_id')->get();
         $footer_menus = $this->phantom__query()->with('children')->ofType(MenuEnums::BACK_FOOTER)->get();
         return $this->phantom__setResponse([
             'header_menus' => $header_menus,
