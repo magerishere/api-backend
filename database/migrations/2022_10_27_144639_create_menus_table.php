@@ -18,10 +18,10 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->enum('locale', LocaleEnums::phantom__all());
+            $table->enum('locale', LocaleEnums::getValues());
             $table->boolean('is_active');
             $table->foreignIdFor(Menu::class, 'parent_id')->nullable()->constrained('menus')->cascadeOnDelete();
-            $table->enum('type', MenuEnums::phantom__all());
+            $table->enum('type', MenuEnums::getValues());
             $table->string('title');
             $table->string('link');
             $table->text('icon');

@@ -20,5 +20,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function () {
-    Route::apiResource('menus', MenuController::class);
+    /*
+    |--------------------------------------------------------------------------
+    | Menus Routes
+    |--------------------------------------------------------------------------
+    */
+    Route::prefix('menus')->as('menus.')->group(function () {
+        Route::apiResource('', MenuController::class);
+        Route::prefix('get')->as('get.')->group(function () {
+            Route::get('types', [MenuController::class, 'getTypes']);
+        });
+    });
+
 });

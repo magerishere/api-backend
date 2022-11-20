@@ -2,6 +2,7 @@
 
 use App\Enums\LocaleEnums;
 use App\Enums\MenuEnums;
+use App\Models\Menu;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $locales = LocaleEnums::phantom__all();
-    dd(in_array('fa', $locales));
+    $menu = Menu::findOrFail(1);
+    dd($menu->locale);
     return view('welcome');
 });

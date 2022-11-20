@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Enums\MenuEnums;
+use App\Enums\TestEnums;
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use Illuminate\Http\Request;
@@ -67,11 +68,18 @@ class MenuController extends PhantomController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    public function getTypes()
+    {
+        return $this->phantom__setResponse([
+            'types' => MenuEnums::asSelectArray(),
+        ]);
     }
 }

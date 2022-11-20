@@ -14,10 +14,10 @@ class MenuHandler
 
     public function __construct(string $locale, string $type)
     {
-        if (!in_array($locale, LocaleEnums::phantom__all())) {
+        if (!LocaleEnums::hasValue($locale)) {
             throw new \Error("Locale does not belongs to LocaleEnums: $locale");
         }
-        if (!in_array($type, MenuEnums::phantom__all())) {
+        if (!MenuEnums::hasValue($type)) {
             throw new \Error("Type does not belongs to MenuEnums: $type");
         }
         $this->locale = $locale;
