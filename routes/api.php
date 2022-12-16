@@ -25,8 +25,8 @@ Route::prefix('v1')->group(function () {
     | Menus Routes
     |--------------------------------------------------------------------------
     */
+    Route::apiResource('menus', MenuController::class);
     Route::prefix('menus')->as('menus.')->group(function () {
-        Route::apiResource('', MenuController::class);
         Route::prefix('get')->as('get.')->group(function () {
             Route::get('types', [MenuController::class, 'getTypes']);
         });

@@ -28,6 +28,10 @@ class MenuSeeder extends Seeder
                 'link' => '/menus',
                 'children' => [
                     [
+                        'title' => 'لیست منوها',
+                        'link' => '/menus',
+                    ],
+                    [
                         'title' => 'ایجاد منو',
                         'link' => '/menus/create',
                     ]
